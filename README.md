@@ -136,69 +136,6 @@ No build step. No bundler. No dependencies to maintain. Open `index.html` and it
 
 Keys are never in the source code. The HTML just calls `/api/config` — a serverless function reads from Vercel's environment and responds. Anyone who views your repo source sees nothing sensitive.
 
----
-
-## Database schema
-
-```sql
-CREATE TABLE movies (
-  id          UUID PRIMARY KEY,
-  user_id     UUID REFERENCES auth.users(id),  -- enforces ownership
-  imdb_id     TEXT NOT NULL,
-  title       TEXT NOT NULL,
-  year        TEXT,
-  poster      TEXT,
-  rating      TEXT,
-  genre       TEXT[],
-  language    TEXT[],
-  country     TEXT,
-  director    TEXT,
-  actors      TEXT,
-  plot        TEXT,
-  runtime     TEXT,
-  rated       TEXT,
-  user_tags   TEXT[] DEFAULT '{}',
-  notes       TEXT  DEFAULT '',
-  watched     BOOLEAN DEFAULT false,
-  added_at    TIMESTAMPTZ DEFAULT NOW()
-);
-```
-
-Row Level Security ensures every query is automatically scoped to the authenticated user — no application-level filtering needed.
-
----
-
-## Deploy your own
-
-Full instructions in [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md). The short version:
-
-1. Create a free [Supabase](https://supabase.com) project and run the SQL from the guide
-2. Get a free [OMDB API key](https://www.omdbapi.com/apikey.aspx)
-3. Push this repo to GitHub
-4. Import into [Vercel](https://vercel.com), add 3 environment variables, deploy
-
-```
-SUPABASE_URL        https://your-project.supabase.co
-SUPABASE_ANON_KEY   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-OMDB_API_KEY        your_omdb_key
-```
-
-Done. Live in under 15 minutes.
-
----
-
-## Project structure
-
-```
-movie-vault/
-├── index.html          # The entire frontend — one file
-├── vercel.json         # Routing config
-├── api/
-│   └── config.js       # Serverless function — serves keys from env vars
-└── DEPLOYMENT_GUIDE.md # Step-by-step setup instructions
-```
-
----
 
 <div align="center">
 
