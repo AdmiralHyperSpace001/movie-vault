@@ -31,6 +31,8 @@
 
 **Your personal, private film collection — built with taste.**
 
+**[Live Demo](https://movie-vault-rho.vercel.app/)**
+
 <br/>
 
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
