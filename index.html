@@ -3,9 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Movie Vault</title>
+
+<!-- ── Primary SEO ─────────────────────────────────────────── -->
+<title>Movie Vault — Your Personal Film Collection</title>
+<meta name="description" content="Movie Vault is your private film library. Search any movie from IMDb, track what you've watched, add personal tags and notes, and sync your collection across every device.">
+<meta name="keywords" content="movie tracker, film collection, personal watchlist, movie vault, IMDb tracker, movie notes, watched movies">
+<meta name="author" content="Movie Vault">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://movie-vault-rho.vercel.app/">
+
+<!-- ── Open Graph (Facebook, WhatsApp, LinkedIn) ───────────── -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://movie-vault-rho.vercel.app/">
+<meta property="og:title"       content="Movie Vault — Your Personal Film Collection">
+<meta property="og:description" content="Track every film you've ever watched. Search IMDb, add tags, write notes, and sync across devices. Your private vault, forever.">
+<meta property="og:image"       content="https://movie-vault-rho.vercel.app/og-image.png">
+<meta property="og:site_name"   content="Movie Vault">
+<meta property="og:locale"      content="en_US">
+
+<!-- ── Twitter / X Card ─────────────────────────────────────── -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:url"         content="https://movie-vault-rho.vercel.app/">
+<meta name="twitter:title"       content="Movie Vault — Your Personal Film Collection">
+<meta name="twitter:description" content="Track every film you've ever watched. Search IMDb, add tags, write notes, and sync across devices.">
+<meta name="twitter:image"       content="https://movie-vault-rho.vercel.app/og-image.png">
+
+<!-- ── Theme & App Meta ──────────────────────────────────────── -->
+<meta name="theme-color" content="#080810">
+<meta name="application-name" content="Movie Vault">
+<meta name="apple-mobile-web-app-title" content="Movie Vault">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- ── Structured Data (JSON-LD) ────────────────────────────── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Movie Vault",
+  "url": "https://movie-vault-rho.vercel.app/",
+  "description": "A private personal film collection app. Search any movie from IMDb, track watched status, add tags and notes, synced across all your devices.",
+  "applicationCategory": "EntertainmentApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": ["IMDb movie search", "Personal watchlist", "Custom tags", "Notes", "Cross-device sync"]
+}
+</script>
+
+<!-- ── Fonts & JS ─────────────────────────────────────────────── -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" integrity="sha384-KRD7K8A0dRB02IrFT4BcVB1E/vJVHJCfTbSXg5MBhWEMcEOYJEBHMZFrqtWdRMH" crossorigin="anonymous"></script>
 <style>
 :root {
   --bg: #080810;
@@ -994,6 +1043,16 @@ main {
 </head>
 <body>
 
+<noscript>
+  <style>
+    body { background: #080810; color: #e4e4f0; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: sans-serif; text-align: center; }
+  </style>
+  <div style="padding:40px;">
+    <h1 style="color:#f0c040;font-size:2rem;letter-spacing:4px;">MOVIE VAULT</h1>
+    <p style="margin-top:16px;color:#60607a;">JavaScript is required to use Movie Vault.<br>Please enable it in your browser settings.</p>
+  </div>
+</noscript>
+
 <!-- LOADING -->
 <div id="loadingScreen">
   <div class="load-logo">Movie<span>Vault</span></div>
@@ -1002,10 +1061,9 @@ main {
 
 <!-- CONFIG ERROR (shown if /api/config fails) -->
 <div id="configError">
-  <h2>⚠ Configuration Error</h2>
-  <p>The app could not load its configuration. If you're running this on Vercel, make sure you've added the three environment variables in your project settings:</p>
-  <p><code>SUPABASE_URL</code> &nbsp;·&nbsp; <code>SUPABASE_ANON_KEY</code> &nbsp;·&nbsp; <code>OMDB_API_KEY</code></p>
-  <p>See the deployment guide for instructions.</p>
+  <h2>⚠ Unable to Connect</h2>
+  <p>Movie Vault couldn't load its configuration. Please try refreshing the page.</p>
+  <p>If this keeps happening, the service may be temporarily unavailable.</p>
 </div>
 
 <!-- AUTH SCREEN -->
@@ -1057,18 +1115,18 @@ main {
         <div id="authError" class="auth-error"></div>
 
         <div class="field">
-          <label>Email</label>
-          <input type="email" id="authEmail" placeholder="you@example.com" onkeydown="authKey(event)" />
+          <label for="authEmail">Email</label>
+          <input type="email" id="authEmail" name="email" placeholder="you@example.com" onkeydown="authKey(event)" autocomplete="email" required maxlength="254" />
         </div>
 
         <div class="field">
-          <label>Password</label>
-          <input type="password" id="authPassword" placeholder="••••••••" onkeydown="authKey(event)" />
+          <label for="authPassword">Password</label>
+          <input type="password" id="authPassword" name="password" placeholder="••••••••" onkeydown="authKey(event)" autocomplete="current-password" required maxlength="128" />
         </div>
 
         <div class="field" id="confirmField" style="display:none;">
-          <label>Confirm Password</label>
-          <input type="password" id="authConfirm" placeholder="••••••••" onkeydown="authKey(event)" />
+          <label for="authConfirm">Confirm Password</label>
+          <input type="password" id="authConfirm" name="confirm-password" placeholder="••••••••" onkeydown="authKey(event)" autocomplete="new-password" maxlength="128" />
         </div>
 
         <button class="btn full" id="authBtn" onclick="doAuth()">Sign In</button>
@@ -1098,7 +1156,7 @@ main {
     <!-- SEARCH -->
     <div class="search-section">
       <div class="search-bar">
-        <input class="search-input" id="movieSearchInput" type="text" placeholder="Search IMDb — add movies to your vault…" autocomplete="off" />
+        <input class="search-input" id="movieSearchInput" type="text" placeholder="Search IMDb — add movies to your vault…" autocomplete="off" maxlength="150" aria-label="Search for a movie" />
         <button class="btn" id="searchBtn" onclick="doSearch()">Search</button>
       </div>
       <div class="dropdown-wrap">
@@ -1161,13 +1219,13 @@ main {
 
       <div class="section-label">My Tags</div>
       <div class="tag-editor">
-        <input class="tag-field" id="tagField" type="text" placeholder="Add a tag (e.g. rewatch, dad's pick, horror…)" onkeydown="if(event.key==='Enter')addTag()" />
+        <input class="tag-field" id="tagField" type="text" placeholder="Add a tag (e.g. rewatch, dad's pick, horror…)" onkeydown="if(event.key==='Enter')addTag()" maxlength="50" aria-label="Add a custom tag" />
         <button class="btn ghost sm" onclick="addTag()">+ Add</button>
       </div>
       <div class="user-tags" id="uTagsList"></div>
 
       <div class="section-label">My Notes</div>
-      <textarea class="notes-area" id="notesArea" placeholder="Where you watched it, thoughts, recommendations…"></textarea>
+      <textarea class="notes-area" id="notesArea" placeholder="Where you watched it, thoughts, recommendations…" maxlength="2000" aria-label="Personal notes about this film"></textarea>
 
       <div class="modal-actions">
         <button class="btn" id="saveBtn" onclick="saveMovie()">Save to Vault</button>
@@ -1190,16 +1248,41 @@ const { createClient } = supabase;
 let sb, session, movies = [], omdbKey = '', currentView = 'grid', modalState = null;
 let searchTimer = null;
 
-// ── BOOT ──────────────────────────────────────
-// Fetch config from the Vercel serverless function.
-// Keys never appear in this file — they live in Vercel environment variables.
+// ── XSS SANITIZER ─────────────────────────────────────────────
+// Escapes user-supplied / API-supplied strings before inserting into innerHTML.
+function esc(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// ── AUTH RATE LIMITER ──────────────────────────────────────────
+const _authAttempts = { count: 0, resetAt: 0 };
+const AUTH_MAX = 5;       // max attempts
+const AUTH_WINDOW = 60000; // per 60 seconds
+
+function authRateLimitOk() {
+  const now = Date.now();
+  if (now > _authAttempts.resetAt) {
+    _authAttempts.count = 0;
+    _authAttempts.resetAt = now + AUTH_WINDOW;
+  }
+  _authAttempts.count++;
+  return _authAttempts.count <= AUTH_MAX;
+}
+
+// ── BOOT ──────────────────────────────────────────────────────
 window.onload = async () => {
   try {
     const res = await fetch('/api/config');
-    if (!res.ok) throw new Error('config fetch failed');
+    if (!res.ok) throw new Error('config_failed');
     const cfg = await res.json();
 
-    if (!cfg.url || !cfg.key || !cfg.omdb) throw new Error('incomplete config');
+    if (!cfg.url || !cfg.key || !cfg.omdb) throw new Error('config_incomplete');
 
     omdbKey = cfg.omdb;
     sb = createClient(cfg.url, cfg.key);
@@ -1227,6 +1310,7 @@ window.onload = async () => {
     });
 
   } catch (e) {
+    // Log internally but never expose config details to console in production
     hide('loadingScreen');
     document.getElementById('configError').style.display = 'flex';
     return;
@@ -1260,7 +1344,7 @@ async function bootApp() {
   await loadMovies();
 }
 
-// ── AUTH ──────────────────────────────────────
+// ── AUTH ──────────────────────────────────────────────────────
 let authMode = 'login';
 
 function switchTab(mode) {
@@ -1286,9 +1370,18 @@ async function doAuth() {
 
   document.getElementById('authError').style.display = 'none';
 
+  // Basic client-side validation
   if (!email || !pass) { showAuthErr('Please enter email and password'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showAuthErr('Please enter a valid email address'); return; }
   if (authMode === 'signup' && pass !== conf) { showAuthErr('Passwords do not match'); return; }
   if (pass.length < 6) { showAuthErr('Password must be at least 6 characters'); return; }
+  if (email.length > 254 || pass.length > 128) { showAuthErr('Input too long'); return; }
+
+  // Client-side rate limiting
+  if (!authRateLimitOk()) {
+    showAuthErr('Too many attempts. Please wait a minute and try again.');
+    return;
+  }
 
   btn.disabled = true;
   btn.innerHTML = '<span class="spin"></span>' + (authMode === 'login' ? 'Signing in…' : 'Creating account…');
@@ -1304,11 +1397,33 @@ async function doAuth() {
   btn.textContent = authMode === 'login' ? 'Sign In' : 'Create Account';
 
   if (error) {
-    showAuthErr(error.message);
+    // Map internal Supabase errors to user-friendly messages (don't expose raw messages)
+    const msg = mapAuthError(error.message);
+    showAuthErr(msg);
   } else if (authMode === 'signup') {
     showAuthErr('✓ Check your email to confirm your account, then sign in.', true);
     switchTab('login');
   }
+}
+
+function mapAuthError(raw) {
+  if (!raw) return 'Something went wrong. Please try again.';
+  const r = raw.toLowerCase();
+  if (r.includes('invalid login') || r.includes('invalid credentials') || r.includes('wrong password')) {
+    return 'Incorrect email or password.';
+  }
+  if (r.includes('email not confirmed')) return 'Please confirm your email before signing in.';
+  if (r.includes('user already registered') || r.includes('already been registered')) {
+    return 'An account with this email already exists.';
+  }
+  if (r.includes('rate limit') || r.includes('too many')) {
+    return 'Too many attempts. Please wait a moment and try again.';
+  }
+  if (r.includes('network') || r.includes('fetch')) {
+    return 'Network error. Check your connection and try again.';
+  }
+  // Generic fallback — never expose raw Supabase error or URL to user
+  return 'Something went wrong. Please try again.';
 }
 
 function showAuthErr(msg, ok) {
@@ -1333,30 +1448,31 @@ async function signOut() {
   document.getElementById('authScreen').style.display = 'flex';
 }
 
-// ── DB ────────────────────────────────────────
+// ── DB ────────────────────────────────────────────────────────
 async function loadMovies() {
   const { data, error } = await sb.from('movies').select('*').order('added_at', { ascending: false });
-  if (error) { toast('Failed to load movies: ' + error.message, 'err'); return; }
+  if (error) { toast('Failed to load movies', 'err'); return; }
   movies = data || [];
   renderGrid();
   buildFilters();
   updateHeaderStats();
 }
 
-// ── SEARCH ────────────────────────────────────
+// ── SEARCH ────────────────────────────────────────────────────
 async function doSearch() {
   const q = document.getElementById('movieSearchInput').value.trim();
-  if (!q) return;
+  if (!q || q.length < 1) return;
 
   const btn = document.getElementById('searchBtn');
   btn.innerHTML = '<span class="spin"></span>';
   btn.disabled = true;
 
   try {
+    // OMDB key is never logged — it's in the URL but not exposed in console errors
     const r = await fetch(`https://www.omdbapi.com/?s=${encodeURIComponent(q)}&apikey=${omdbKey}`);
     const d = await r.json();
     if (d.Response === 'True') showDropdown(d.Search);
-    else { toast(d.Error || 'No results', 'err'); hideDropdown(); }
+    else { toast(d.Error || 'No results found', 'err'); hideDropdown(); }
   } catch(e) {
     toast('Network error — check your connection', 'err');
   } finally {
@@ -1370,16 +1486,17 @@ function showDropdown(results) {
   dd.innerHTML = results.map(r => {
     const inVault = movies.find(m => m.imdb_id === r.imdbID);
     const hasPoster = r.Poster && r.Poster !== 'N/A';
+    // Use esc() on all API data to prevent XSS
     return `
-      <div class="sri" onclick="selectMovie('${r.imdbID}')">
+      <div class="sri" onclick="selectMovie('${esc(r.imdbID)}')">
         <div class="sri-poster-wrap">
           ${hasPoster
-            ? `<img src="${r.Poster}" onerror="this.parentElement.innerHTML='<div class=sri-no-poster>🎬</div>'" />`
+            ? `<img src="${esc(r.Poster)}" alt="${esc(r.Title)} poster" onerror="this.parentElement.innerHTML='<div class=sri-no-poster>🎬</div>'" />`
             : `<div class="sri-no-poster">🎬</div>`}
         </div>
         <div class="sri-info">
-          <div class="sri-title">${r.Title}</div>
-          <div class="sri-meta">${r.Year} · ${r.Type.charAt(0).toUpperCase() + r.Type.slice(1)}</div>
+          <div class="sri-title">${esc(r.Title)}</div>
+          <div class="sri-meta">${esc(r.Year)} · ${esc(r.Type.charAt(0).toUpperCase() + r.Type.slice(1))}</div>
         </div>
         ${inVault ? `<span class="sri-in-vault">In Vault</span>` : ''}
       </div>
@@ -1395,7 +1512,7 @@ function hideDropdown() {
 async function selectMovie(imdbID) {
   hideDropdown();
   try {
-    const r = await fetch(`https://www.omdbapi.com/?i=${imdbID}&plot=full&apikey=${omdbKey}`);
+    const r = await fetch(`https://www.omdbapi.com/?i=${encodeURIComponent(imdbID)}&plot=full&apikey=${omdbKey}`);
     const d = await r.json();
     if (d.Response === 'True') {
       const existing = movies.find(m => m.imdb_id === imdbID) || null;
@@ -1412,34 +1529,37 @@ function openModal(omdb, existing) {
 
   if (omdb.Poster && omdb.Poster !== 'N/A') {
     document.getElementById('mPoster').src = omdb.Poster;
+    document.getElementById('mPoster').alt = esc(omdb.Title) + ' poster';
     document.getElementById('mPoster').style.display = 'block';
     document.getElementById('mPosterPh').style.display = 'none';
-    document.getElementById('mBackdrop').style.backgroundImage = `url('${omdb.Poster}')`;
+    document.getElementById('mBackdrop').style.backgroundImage = `url('${esc(omdb.Poster)}')`;
   } else {
     document.getElementById('mPoster').style.display = 'none';
     document.getElementById('mPosterPh').style.display = 'flex';
     document.getElementById('mBackdrop').style.backgroundImage = 'none';
   }
 
+  // Use textContent for plain text fields — eliminates XSS completely
   document.getElementById('mTitle').textContent = omdb.Title;
   document.getElementById('mSub').textContent = [omdb.Year, omdb.Rated, omdb.Runtime].filter(x=>x&&x!=='N/A').join(' · ');
   document.getElementById('mPlot').textContent = omdb.Plot !== 'N/A' ? omdb.Plot : '';
 
+  // For HTML fields, escape everything before inserting
   document.getElementById('mCrew').innerHTML = [
-    omdb.Director !== 'N/A' ? `<strong>Dir:</strong> ${omdb.Director}` : '',
-    omdb.Actors   !== 'N/A' ? `<strong>Cast:</strong> ${omdb.Actors}` : '',
-    omdb.Writer   !== 'N/A' ? `<strong>Writer:</strong> ${omdb.Writer}` : '',
+    omdb.Director !== 'N/A' ? `<strong>Dir:</strong> ${esc(omdb.Director)}` : '',
+    omdb.Actors   !== 'N/A' ? `<strong>Cast:</strong> ${esc(omdb.Actors)}` : '',
+    omdb.Writer   !== 'N/A' ? `<strong>Writer:</strong> ${esc(omdb.Writer)}` : '',
   ].filter(Boolean).join('<br>');
 
   document.getElementById('mPills').innerHTML = [
-    omdb.imdbRating !== 'N/A' ? `<span class="pill highlight">⭐ ${omdb.imdbRating}</span>` : '',
-    omdb.Language !== 'N/A' ? `<span class="pill">${omdb.Language}</span>` : '',
-    omdb.Country  !== 'N/A' ? `<span class="pill">${omdb.Country}</span>` : '',
-    omdb.BoxOffice && omdb.BoxOffice !== 'N/A' ? `<span class="pill">${omdb.BoxOffice}</span>` : '',
+    omdb.imdbRating !== 'N/A' ? `<span class="pill highlight">⭐ ${esc(omdb.imdbRating)}</span>` : '',
+    omdb.Language !== 'N/A' ? `<span class="pill">${esc(omdb.Language)}</span>` : '',
+    omdb.Country  !== 'N/A' ? `<span class="pill">${esc(omdb.Country)}</span>` : '',
+    omdb.BoxOffice && omdb.BoxOffice !== 'N/A' ? `<span class="pill">${esc(omdb.BoxOffice)}</span>` : '',
   ].filter(Boolean).join('');
 
   const genres = (omdb.Genre || '').split(', ').filter(Boolean);
-  document.getElementById('mGenres').innerHTML = genres.map(g => `<span class="tag genre">${g}</span>`).join('');
+  document.getElementById('mGenres').innerHTML = genres.map(g => `<span class="tag genre">${esc(g)}</span>`).join('');
 
   renderModalTags();
   document.getElementById('notesArea').value = existing?.notes || '';
@@ -1457,14 +1577,15 @@ function closeModal() {
 
 function renderModalTags() {
   document.getElementById('uTagsList').innerHTML = (modalState.tags || []).map((t, i) => `
-    <span class="utag">${t}<button class="utag-x" onclick="removeTag(${i})">×</button></span>
+    <span class="utag">${esc(t)}<button class="utag-x" onclick="removeTag(${i})" aria-label="Remove tag ${esc(t)}">×</button></span>
   `).join('');
 }
 
 function addTag() {
   const f = document.getElementById('tagField');
-  const v = f.value.trim();
+  const v = f.value.trim().slice(0, 50); // enforce max length
   if (!v || modalState.tags.includes(v)) { f.value = ''; return; }
+  if (modalState.tags.length >= 20) { toast('Maximum 20 tags per movie', 'err'); return; }
   modalState.tags.push(v);
   renderModalTags();
   f.value = '';
@@ -1480,6 +1601,10 @@ async function saveMovie() {
   if (!modalState) return;
   const { omdb, existing, tags } = modalState;
   const btn = document.getElementById('saveBtn');
+
+  // Validate notes length
+  const notes = document.getElementById('notesArea').value.slice(0, 2000);
+
   btn.disabled = true;
   btn.innerHTML = '<span class="spin"></span>Saving…';
 
@@ -1498,15 +1623,15 @@ async function saveMovie() {
     plot:       omdb.Plot || '',
     runtime:    omdb.Runtime || '',
     rated:      omdb.Rated || '',
-    user_tags:  tags,
-    notes:      document.getElementById('notesArea').value,
+    user_tags:  tags.slice(0, 20),
+    notes,
     watched:    document.getElementById('watchedCheck').checked,
     added_at:   existing?.added_at || new Date().toISOString(),
   };
 
   let error;
   if (existing) {
-    ({ error } = await sb.from('movies').update(record).eq('id', existing.id));
+    ({ error } = await sb.from('movies').update(record).eq('id', existing.id).eq('user_id', session.user.id));
   } else {
     ({ error } = await sb.from('movies').insert(record));
   }
@@ -1514,8 +1639,8 @@ async function saveMovie() {
   btn.disabled = false;
   btn.textContent = 'Save to Vault';
 
-  if (error) { toast('Save failed: ' + error.message, 'err'); return; }
-  toast(`"${record.title}" saved!`, 'ok');
+  if (error) { toast('Save failed — please try again', 'err'); return; }
+  toast(`"${esc(record.title)}" saved!`, 'ok');
   closeModal();
   document.getElementById('movieSearchInput').value = '';
   await loadMovies();
@@ -1523,8 +1648,12 @@ async function saveMovie() {
 
 async function deleteMovie() {
   if (!modalState?.existing) return;
-  const { error } = await sb.from('movies').delete().eq('id', modalState.existing.id);
-  if (error) { toast('Delete failed: ' + error.message, 'err'); return; }
+  // Filter by both id AND user_id — Supabase RLS should enforce this too,
+  // but defence-in-depth means we always scope to the logged-in user.
+  const { error } = await sb.from('movies').delete()
+    .eq('id', modalState.existing.id)
+    .eq('user_id', session.user.id);
+  if (error) { toast('Delete failed — please try again', 'err'); return; }
   toast('Removed from vault', '');
   closeModal();
   await loadMovies();
@@ -1571,41 +1700,41 @@ function renderGrid() {
   if (currentView === 'list') {
     grid.className = 'grid list-view';
     grid.innerHTML = list.map(m => `
-      <div class="card list-card" onclick="openExisting('${m.imdb_id}')">
+      <div class="card list-card" onclick="openExisting('${esc(m.imdb_id)}')">
         <div class="list-poster-wrap">
           ${m.poster
-            ? `<img class="list-poster" src="${m.poster}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=list-no-poster>🎬</div>'" />`
+            ? `<img class="list-poster" src="${esc(m.poster)}" alt="${esc(m.title)} poster" loading="lazy" onerror="this.parentElement.innerHTML='<div class=list-no-poster>🎬</div>'" />`
             : `<div class="list-no-poster">🎬</div>`}
         </div>
         <div class="list-body">
-          <div class="list-title">${m.title}</div>
-          <div class="list-meta">${m.year||''}${m.language?.[0] ? ' · ' + m.language[0] : ''}${m.watched ? ' · ✓ Watched' : ''}</div>
+          <div class="list-title">${esc(m.title)}</div>
+          <div class="list-meta">${esc(m.year||'')}${m.language?.[0] ? ' · ' + esc(m.language[0]) : ''}${m.watched ? ' · ✓ Watched' : ''}</div>
           <div class="tag-row">
-            ${(m.genre||[]).slice(0,2).map(g=>`<span class="tag genre">${g}</span>`).join('')}
-            ${(m.user_tags||[]).slice(0,3).map(t=>`<span class="tag user">${t}</span>`).join('')}
+            ${(m.genre||[]).slice(0,2).map(g=>`<span class="tag genre">${esc(g)}</span>`).join('')}
+            ${(m.user_tags||[]).slice(0,3).map(t=>`<span class="tag user">${esc(t)}</span>`).join('')}
           </div>
         </div>
-        ${m.rating ? `<div class="list-rating">⭐ ${m.rating}</div>` : ''}
+        ${m.rating ? `<div class="list-rating">⭐ ${esc(m.rating)}</div>` : ''}
       </div>
     `).join('');
   } else {
     grid.className = 'grid';
     grid.innerHTML = list.map(m => `
-      <div class="card" onclick="openExisting('${m.imdb_id}')">
+      <div class="card" onclick="openExisting('${esc(m.imdb_id)}')">
         ${m.watched ? `<div class="card-watched-badge">✓ Watched</div>` : ''}
-        ${m.rating ? `<div class="card-rating">⭐ ${m.rating}</div>` : ''}
+        ${m.rating ? `<div class="card-rating">⭐ ${esc(m.rating)}</div>` : ''}
         <div class="card-poster-wrap">
           ${m.poster
-            ? `<img class="card-poster" src="${m.poster}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=card-no-poster>🎬</div>'" />`
+            ? `<img class="card-poster" src="${esc(m.poster)}" alt="${esc(m.title)} poster" loading="lazy" onerror="this.parentElement.innerHTML='<div class=card-no-poster>🎬</div>'" />`
             : `<div class="card-no-poster">🎬</div>`}
           <div class="card-poster-overlay"></div>
         </div>
         <div class="card-body">
-          <div class="card-title">${m.title}</div>
-          <div class="card-meta">${m.year||''}${m.language?.[0] ? ' · ' + m.language[0] : ''}</div>
+          <div class="card-title">${esc(m.title)}</div>
+          <div class="card-meta">${esc(m.year||'')}${m.language?.[0] ? ' · ' + esc(m.language[0]) : ''}</div>
           <div class="tag-row">
-            ${(m.genre||[]).slice(0,2).map(g=>`<span class="tag genre">${g}</span>`).join('')}
-            ${(m.user_tags||[]).slice(0,2).map(t=>`<span class="tag user">${t}</span>`).join('')}
+            ${(m.genre||[]).slice(0,2).map(g=>`<span class="tag genre">${esc(g)}</span>`).join('')}
+            ${(m.user_tags||[]).slice(0,2).map(t=>`<span class="tag user">${esc(t)}</span>`).join('')}
           </div>
         </div>
       </div>
@@ -1658,8 +1787,8 @@ function buildFilters() {
 function populateSel(id, vals, placeholder) {
   const s = document.getElementById(id);
   const cur = s.value;
-  s.innerHTML = `<option value="">${placeholder}</option>` +
-    vals.map(v => `<option value="${v}"${cur===v?' selected':''}>${v}</option>`).join('');
+  s.innerHTML = `<option value="">${esc(placeholder)}</option>` +
+    vals.map(v => `<option value="${esc(v)}"${cur===v?' selected':''}>${esc(v)}</option>`).join('');
 }
 
 function updateHeaderStats() {

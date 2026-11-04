@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block authenticated user pages (they require login anyway)
+Disallow: /api/
+
+Sitemap: https://movie-vault-rho.vercel.app/sitemap.xml
