@@ -35,6 +35,15 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+<!-- ── Favicons & App Icons ─────────────────────────────────── -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
 <!-- ── Structured Data (JSON-LD) ────────────────────────────── -->
 <script type="application/ld+json">
 {
@@ -53,7 +62,7 @@
 <!-- ── Fonts & JS ─────────────────────────────────────────────── -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" integrity="sha384-KRD7K8A0dRB02IrFT4BcVB1E/vJVHJCfTbSXg5MBhWEMcEOYJEBHMZFrqtWdRMH" crossorigin="anonymous"></script>
 <style>
 :root {
@@ -169,22 +178,57 @@ body::before {
   text-align: center;
 }
 
-.auth-brand {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 4rem;
-  letter-spacing: 6px;
+/* ─── BRAND TYPOGRAPHY & EMBLEM ─── */
+.brand-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--accent);
-  line-height: 1;
-  text-shadow: 0 0 60px rgba(240,192,64,0.3);
+  background: linear-gradient(180deg, #FFF4D8 0%, #F5CF7A 26%, #D29645 60%, #8A642E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  line-height: 1.15;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.85)) drop-shadow(0 0 16px rgba(210,150,69,0.25));
 }
 
-.auth-brand span { color: var(--text); }
+.logo-emblem {
+  display: inline-block;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 16px rgba(210, 150, 69, 0.32));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s;
+}
+.logo-emblem:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 6px 24px rgba(210, 150, 69, 0.5));
+}
+
+.auth-brand-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.auth-emblem {
+  width: 130px;
+  height: 130px;
+  filter: drop-shadow(0 10px 36px rgba(210, 150, 69, 0.45));
+}
+
+.auth-brand {
+  font-size: 2.8rem;
+  letter-spacing: 0.18em;
+  margin-top: 4px;
+}
 
 .auth-brand-tagline {
   font-size: 0.85rem;
   color: var(--muted);
   letter-spacing: 2px;
-  margin-top: 8px;
+  margin-top: 12px;
   text-transform: uppercase;
 }
 
@@ -374,13 +418,24 @@ header {
 }
 
 .header-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 3px;
-  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
 }
 
-.header-logo span { color: var(--text); }
+.header-emblem {
+  width: 32px;
+  height: 32px;
+}
+
+.header-brand-text {
+  font-size: 1.25rem;
+  letter-spacing: 0.15em;
+}
+
 .header-stats { font-size: 0.75rem; color: var(--muted); }
 
 .header-right {
@@ -989,15 +1044,43 @@ main {
   justify-content: center;
   z-index: 900;
   flex-direction: column;
-  gap: 16px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 3px;
+  gap: 24px;
+  font-family: 'DM Sans', sans-serif;
   color: var(--muted);
 }
 
-.load-logo { font-size: 2.4rem; color: var(--accent); }
-.load-logo span { color: var(--text); }
+.load-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.load-emblem {
+  width: 96px;
+  height: 96px;
+  animation: logoPulse 2.2s ease-in-out infinite;
+}
+
+.load-title {
+  font-size: 2.1rem;
+  letter-spacing: 0.18em;
+}
+
+.load-status {
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 4px 16px rgba(210, 150, 69, 0.3)); }
+  50% { transform: scale(1.06); filter: drop-shadow(0 8px 30px rgba(210, 150, 69, 0.6)); }
+}
 
 /* ─── CONFIG ERROR ─── */
 #configError {
@@ -1026,10 +1109,20 @@ main {
 }
 
 /* ─── RESPONSIVE ─── */
+.auth-mobile-header { display: none; }
+
 @media (max-width: 768px) {
   .auth-left { display: none; }
   .auth-right { width: 100%; border-left: none; }
   #authScreen { align-items: center; justify-content: center; }
+  .auth-mobile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1055,8 +1148,11 @@ main {
 
 <!-- LOADING -->
 <div id="loadingScreen">
-  <div class="load-logo">Movie<span>Vault</span></div>
-  <div><span class="spin"></span>Loading…</div>
+  <div class="load-brand">
+    <img src="/logo.png" alt="Movie Vault" class="logo-emblem load-emblem" />
+    <div class="brand-text load-title">Movie Vault</div>
+  </div>
+  <div class="load-status"><span class="spin"></span>Loading…</div>
 </div>
 
 <!-- CONFIG ERROR (shown if /api/config fails) -->
@@ -1083,7 +1179,10 @@ main {
         <div class="auth-poster-grid-item"></div>
       </div>
       <div class="auth-left-content">
-        <div class="auth-brand">Movie<span>Vault</span></div>
+        <div class="auth-brand-wrap">
+          <img src="/logo.png" alt="Movie Vault emblem" class="logo-emblem auth-emblem" />
+          <h1 class="brand-text auth-brand">Movie Vault</h1>
+        </div>
         <div class="auth-brand-tagline">Your personal film collection</div>
         <div class="auth-features">
           <div class="auth-feature">
@@ -1104,6 +1203,10 @@ main {
 
     <div class="auth-right">
       <div class="auth-form-wrap">
+        <div class="auth-mobile-header">
+          <img src="/logo.png" alt="Movie Vault emblem" class="logo-emblem" style="width:54px;height:54px;" />
+          <div class="brand-text" style="font-size:1.5rem;letter-spacing:0.16em;">Movie Vault</div>
+        </div>
         <div class="auth-form-title" id="authFormTitle">Welcome back</div>
         <div class="auth-form-sub">Sign in to access your vault</div>
 
@@ -1144,7 +1247,10 @@ main {
 <!-- APP -->
 <div id="appScreen">
   <header>
-    <div class="header-logo">Movie<span>Vault</span></div>
+    <div class="header-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});" title="Movie Vault Home">
+      <img src="/logo.png" alt="Movie Vault emblem" class="logo-emblem header-emblem" />
+      <span class="brand-text header-brand-text">Movie Vault</span>
+    </div>
     <div class="header-stats" id="hStats"></div>
     <div class="header-right">
       <div class="user-pill" id="userPill"></div>

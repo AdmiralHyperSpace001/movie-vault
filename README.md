@@ -1,33 +1,9 @@
 <div align="center">
 
-<!-- Hero SVG Banner -->
-<svg width="900" height="200" viewBox="0 0 900 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="900" height="200" fill="#080810"/>
-  <!-- Film strip holes left -->
-  <rect x="0" y="0" width="48" height="200" fill="#0c0c1a"/>
-  <rect x="8" y="12" width="32" height="22" rx="4" fill="#1a1a2e"/>
-  <rect x="8" y="46" width="32" height="22" rx="4" fill="#1a1a2e"/>
-  <rect x="8" y="80" width="32" height="22" rx="4" fill="#1a1a2e"/>
-  <rect x="8" y="114" width="32" height="22" rx="4" fill="#1a1a2e"/>
-  <rect x="8" y="148" width="32" height="22" rx="4" fill="#1a1a2e"/>
-  <!-- Film strip holes right -->
-  <rect x="852" y="0" width="48" height="200" fill="#0c0c1a"/>
-  <rect x="860" y="12" width="32" height="22" rx="4" fill="#1a1a2e"/>
-  <rect x="860" y="46" width="32" height="22" rx="4" fill="#1a1a2e"/>
-  <rect x="860" y="80" width="32" height="22" rx="4" fill="#1a1a2e"/>
-  <rect x="860" y="114" width="32" height="22" rx="4" fill="#1a1a2e"/>
-  <rect x="860" y="148" width="32" height="22" rx="4" fill="#1a1a2e"/>
-  <!-- Glow -->
-  <ellipse cx="450" cy="100" rx="320" ry="80" fill="#f0c040" fill-opacity="0.04"/>
-  <!-- Title -->
-  <text x="450" y="88" font-family="Georgia, serif" font-size="64" font-weight="700" letter-spacing="12" fill="#f0c040" text-anchor="middle">MOVIE</text>
-  <text x="450" y="152" font-family="Georgia, serif" font-size="64" font-weight="700" letter-spacing="12" fill="#e4e4f0" text-anchor="middle">VAULT</text>
-  <!-- Accent line -->
-  <line x1="200" y1="105" x2="332" y2="105" stroke="#f0c040" stroke-width="1.5" stroke-opacity="0.4"/>
-  <line x1="568" y1="105" x2="700" y2="105" stroke="#f0c040" stroke-width="1.5" stroke-opacity="0.4"/>
-</svg>
+<!-- Hero Banner -->
+<img src="public/og-image.png" alt="Movie Vault Hero Banner" width="800" style="border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,0.6);" />
 
-<br/>
+<br/><br/>
 
 **Your personal, private film collection — built with taste.**
 
