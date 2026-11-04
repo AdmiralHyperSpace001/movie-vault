@@ -87,7 +87,7 @@ Deployment      Vercel (serverless functions + static hosting)
 Security        API keys stored as Vercel env vars, served via /api/config
 ```
 
-No build step. No bundler. No dependencies to maintain. Open `index.html` and it's the whole app.
+No build step. No bundler. No dependencies to maintain. Open `public/index.html` and it's the whole app.
 
 ---
 
@@ -97,7 +97,7 @@ No build step. No bundler. No dependencies to maintain. Open `index.html` and it
 ┌─────────────────────────────────────────────┐
 │                  Browser                    │
 │                                             │
-│   index.html  ──fetch──▶  /api/config       │
+│   public/index.html  ──fetch──▶  /api/config │
 │       │                   (Vercel fn)        │
 │       │                       │             │
 │       │              reads env vars         │

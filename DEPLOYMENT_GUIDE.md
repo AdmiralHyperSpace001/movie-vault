@@ -20,7 +20,8 @@ After following this guide you'll have a folder that looks like this:
 
 ```
 movie-vault/
-├── index.html        ← the app
+├── public/
+│   └── index.html    ← the app
 ├── vercel.json       ← routing config
 └── api/
     └── config.js     ← serverless function that serves your keys
@@ -110,7 +111,7 @@ CREATE POLICY "Users manage own movies"
 1. Go to https://vercel.com and sign up (free — use GitHub or email)
 2. Click **Add New… → Project**
 3. Choose **"Deploy from your computer"** and drag the entire `movie-vault/` **folder** into the deploy area
-   > ⚠️ Drag the **folder**, not individual files. Vercel needs to see `index.html`, `vercel.json`, and `api/config.js` together.
+   > ⚠️ Drag the **folder**, not individual files. Vercel needs to see `public/index.html`, `vercel.json`, and `api/config.js` together.
 4. Before clicking Deploy, click **Environment Variables** and add all three:
 
    | Name | Value |
