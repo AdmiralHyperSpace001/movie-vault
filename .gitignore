@@ -5,6 +5,7 @@
 .env.development
 .env.production
 .env*.local
+*.env
 
 # ── Vercel local dev ──────────────────────────────────────────
 .vercel/
