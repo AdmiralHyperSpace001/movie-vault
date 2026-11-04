@@ -79,3 +79,4 @@ CREATE INDEX IF NOT EXISTS idx_movies_imdb_id  ON public.movies(user_id, imdb_id
 --  ✓ Anon access revoked
 --  ✓ Indexed for performance
 -- ══════════════════════════════════════════════════════════════
+

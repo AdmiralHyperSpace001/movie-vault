@@ -5,3 +5,4 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://movie-vault-rho.vercel.app/sitemap.xml
+

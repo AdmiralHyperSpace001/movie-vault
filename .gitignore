@@ -1,0 +1,41 @@
+# ── Environment & Secrets ─────────────────────────────────────
+# NEVER commit real keys — set them in Vercel's dashboard instead
+.env
+.env.local
+.env.development
+.env.production
+.env*.local
+
+# ── Vercel local dev ──────────────────────────────────────────
+.vercel/
+
+# ── Editor & OS junk ─────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# ── JetBrains / VSCode / etc. ────────────────────────────────
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ── Node (if you ever add tooling) ───────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Backup / temp files ───────────────────────────────────────
+*.bak
+*.tmp
+*.swp
+*~
+
+# ── Logs ─────────────────────────────────────────────────────
+*.log
+logs/
