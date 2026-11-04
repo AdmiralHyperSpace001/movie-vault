@@ -1,12 +1,6 @@
 {
-  "outputDirectory": ".",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/assets/(.*)", "destination": "/public/assets/$1" },
-    { "source": "/robots.txt", "destination": "/public/robots.txt" },
-    { "source": "/sitemap.xml", "destination": "/public/sitemap.xml" },
-    { "source": "/site.webmanifest", "destination": "/public/site.webmanifest" },
-    { "source": "/(favicon.*|apple-touch-icon.*|icon-.*|logo.*|movie-vault-.*|og-image.*)", "destination": "/public/$1" },
     { "source": "/(.*)",     "destination": "/index.html" }
   ],
   "headers": [
