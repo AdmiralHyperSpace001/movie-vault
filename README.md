@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Hero Banner -->
-<img src="public/og-image.png" alt="Movie Vault Hero Banner" width="800" style="border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,0.6);" />
+<img src="public/assets/og-image.png" alt="Movie Vault Hero Banner" width="800" style="border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,0.6);" />
 
 <br/><br/>
 

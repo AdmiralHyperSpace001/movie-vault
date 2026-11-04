@@ -17,7 +17,7 @@
 <meta property="og:url"         content="https://movie-vault-rho.vercel.app/">
 <meta property="og:title"       content="Movie Vault — Your Personal Film Collection">
 <meta property="og:description" content="Track every film you've ever watched. Search IMDb, add tags, write notes, and sync across devices. Your private vault, forever.">
-<meta property="og:image"       content="https://movie-vault-rho.vercel.app/og-image.png">
+<meta property="og:image"       content="https://movie-vault-rho.vercel.app/assets/og-image.png">
 <meta property="og:site_name"   content="Movie Vault">
 <meta property="og:locale"      content="en_US">
 
@@ -26,7 +26,7 @@
 <meta name="twitter:url"         content="https://movie-vault-rho.vercel.app/">
 <meta name="twitter:title"       content="Movie Vault — Your Personal Film Collection">
 <meta name="twitter:description" content="Track every film you've ever watched. Search IMDb, add tags, write notes, and sync across devices.">
-<meta name="twitter:image"       content="https://movie-vault-rho.vercel.app/og-image.png">
+<meta name="twitter:image"       content="https://movie-vault-rho.vercel.app/assets/og-image.png">
 
 <!-- ── Theme & App Meta ──────────────────────────────────────── -->
 <meta name="theme-color" content="#080810">
@@ -62,7 +62,7 @@
 <!-- ── Fonts & JS ─────────────────────────────────────────────── -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" integrity="sha384-KRD7K8A0dRB02IrFT4BcVB1E/vJVHJCfTbSXg5MBhWEMcEOYJEBHMZFrqtWdRMH" crossorigin="anonymous"></script>
 <style>
 :root {
@@ -180,16 +180,16 @@ body::before {
 
 /* ─── BRAND TYPOGRAPHY & EMBLEM ─── */
 .brand-text {
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
-  background: linear-gradient(180deg, #FFF4D8 0%, #F5CF7A 26%, #D29645 60%, #8A642E 100%);
+  background: linear-gradient(180deg, #FBE599 0%, #D89F38 40%, #B87E23 75%, #8B5A14 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-  line-height: 1.15;
+  line-height: 1;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.85)) drop-shadow(0 0 16px rgba(210,150,69,0.25));
 }
 
@@ -219,8 +219,8 @@ body::before {
 }
 
 .auth-brand {
-  font-size: 2.8rem;
-  letter-spacing: 0.18em;
+  font-size: 3.4rem;
+  letter-spacing: 0.14em;
   margin-top: 4px;
 }
 
@@ -432,8 +432,8 @@ header {
 }
 
 .header-brand-text {
-  font-size: 1.25rem;
-  letter-spacing: 0.15em;
+  font-size: 1.55rem;
+  letter-spacing: 0.14em;
 }
 
 .header-stats { font-size: 0.75rem; color: var(--muted); }
@@ -1063,8 +1063,8 @@ main {
 }
 
 .load-title {
-  font-size: 2.1rem;
-  letter-spacing: 0.18em;
+  font-size: 2.6rem;
+  letter-spacing: 0.14em;
 }
 
 .load-status {
@@ -1149,7 +1149,7 @@ main {
 <!-- LOADING -->
 <div id="loadingScreen">
   <div class="load-brand">
-    <img src="/logo.png" alt="Movie Vault" class="logo-emblem load-emblem" />
+    <img src="/assets/logo.png" alt="Movie Vault" class="logo-emblem load-emblem" />
     <div class="brand-text load-title">Movie Vault</div>
   </div>
   <div class="load-status"><span class="spin"></span>Loading…</div>
@@ -1180,7 +1180,7 @@ main {
       </div>
       <div class="auth-left-content">
         <div class="auth-brand-wrap">
-          <img src="/logo.png" alt="Movie Vault emblem" class="logo-emblem auth-emblem" />
+          <img src="/assets/logo.png" alt="Movie Vault emblem" class="logo-emblem auth-emblem" />
           <h1 class="brand-text auth-brand">Movie Vault</h1>
         </div>
         <div class="auth-brand-tagline">Your personal film collection</div>
@@ -1204,8 +1204,8 @@ main {
     <div class="auth-right">
       <div class="auth-form-wrap">
         <div class="auth-mobile-header">
-          <img src="/logo.png" alt="Movie Vault emblem" class="logo-emblem" style="width:54px;height:54px;" />
-          <div class="brand-text" style="font-size:1.5rem;letter-spacing:0.16em;">Movie Vault</div>
+          <img src="/assets/logo.png" alt="Movie Vault emblem" class="logo-emblem" style="width:54px;height:54px;" />
+          <div class="brand-text" style="font-size:1.8rem;letter-spacing:0.14em;">Movie Vault</div>
         </div>
         <div class="auth-form-title" id="authFormTitle">Welcome back</div>
         <div class="auth-form-sub">Sign in to access your vault</div>
@@ -1248,7 +1248,7 @@ main {
 <div id="appScreen">
   <header>
     <div class="header-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});" title="Movie Vault Home">
-      <img src="/logo.png" alt="Movie Vault emblem" class="logo-emblem header-emblem" />
+      <img src="/assets/logo.png" alt="Movie Vault emblem" class="logo-emblem header-emblem" />
       <span class="brand-text header-brand-text">Movie Vault</span>
     </div>
     <div class="header-stats" id="hStats"></div>
@@ -1492,23 +1492,28 @@ async function doAuth() {
   btn.disabled = true;
   btn.innerHTML = '<span class="spin"></span>' + (authMode === 'login' ? 'Signing in…' : 'Creating account…');
 
-  let error;
-  if (authMode === 'login') {
-    ({ error } = await sb.auth.signInWithPassword({ email, password: pass }));
-  } else {
-    ({ error } = await sb.auth.signUp({ email, password: pass }));
-  }
+  try {
+    let error;
+    if (authMode === 'login') {
+      ({ error } = await sb.auth.signInWithPassword({ email, password: pass }));
+    } else {
+      ({ error } = await sb.auth.signUp({ email, password: pass }));
+    }
 
-  btn.disabled = false;
-  btn.textContent = authMode === 'login' ? 'Sign In' : 'Create Account';
-
-  if (error) {
-    // Map internal Supabase errors to user-friendly messages (don't expose raw messages)
-    const msg = mapAuthError(error.message);
+    if (error) {
+      // Map internal Supabase errors to user-friendly messages (don't expose raw messages)
+      const msg = mapAuthError(error.message);
+      showAuthErr(msg);
+    } else if (authMode === 'signup') {
+      showAuthErr('✓ Check your email to confirm your account, then sign in.', true);
+      switchTab('login');
+    }
+  } catch (err) {
+    const msg = mapAuthError(err?.message || 'Network error');
     showAuthErr(msg);
-  } else if (authMode === 'signup') {
-    showAuthErr('✓ Check your email to confirm your account, then sign in.', true);
-    switchTab('login');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = authMode === 'login' ? 'Sign In' : 'Create Account';
   }
 }
 
@@ -1525,8 +1530,8 @@ function mapAuthError(raw) {
   if (r.includes('rate limit') || r.includes('too many')) {
     return 'Too many attempts. Please wait a moment and try again.';
   }
-  if (r.includes('network') || r.includes('fetch')) {
-    return 'Network error. Check your connection and try again.';
+  if (r.includes('network') || r.includes('fetch') || r.includes('name_not_resolved') || r.includes('failed to fetch')) {
+    return 'Unable to reach authentication server. Check your connection or database URL.';
   }
   // Generic fallback — never expose raw Supabase error or URL to user
   return 'Something went wrong. Please try again.';
@@ -1548,7 +1553,7 @@ function showAuthErr(msg, ok) {
 }
 
 async function signOut() {
-  await sb.auth.signOut();
+  try { await sb.auth.signOut(); } catch (e) {}
   movies = [];
   hide('appScreen');
   document.getElementById('authScreen').style.display = 'flex';
@@ -1556,12 +1561,16 @@ async function signOut() {
 
 // ── DB ────────────────────────────────────────────────────────
 async function loadMovies() {
-  const { data, error } = await sb.from('movies').select('*').order('added_at', { ascending: false });
-  if (error) { toast('Failed to load movies', 'err'); return; }
-  movies = data || [];
-  renderGrid();
-  buildFilters();
-  updateHeaderStats();
+  try {
+    const { data, error } = await sb.from('movies').select('*').order('added_at', { ascending: false });
+    if (error) { toast('Failed to load movies', 'err'); return; }
+    movies = data || [];
+    renderGrid();
+    buildFilters();
+    updateHeaderStats();
+  } catch (err) {
+    toast('Network error loading movies', 'err');
+  }
 }
 
 // ── SEARCH ────────────────────────────────────────────────────
@@ -1735,34 +1744,40 @@ async function saveMovie() {
     added_at:   existing?.added_at || new Date().toISOString(),
   };
 
-  let error;
-  if (existing) {
-    ({ error } = await sb.from('movies').update(record).eq('id', existing.id).eq('user_id', session.user.id));
-  } else {
-    ({ error } = await sb.from('movies').insert(record));
+  try {
+    let error;
+    if (existing) {
+      ({ error } = await sb.from('movies').update(record).eq('id', existing.id).eq('user_id', session.user.id));
+    } else {
+      ({ error } = await sb.from('movies').insert(record));
+    }
+
+    if (error) { toast('Save failed — please try again', 'err'); return; }
+    toast(`"${record.title}" saved!`, 'ok');
+    closeModal();
+    document.getElementById('movieSearchInput').value = '';
+    await loadMovies();
+  } catch (err) {
+    toast('Save failed — network error', 'err');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Save to Vault';
   }
-
-  btn.disabled = false;
-  btn.textContent = 'Save to Vault';
-
-  if (error) { toast('Save failed — please try again', 'err'); return; }
-  toast(`"${esc(record.title)}" saved!`, 'ok');
-  closeModal();
-  document.getElementById('movieSearchInput').value = '';
-  await loadMovies();
 }
 
 async function deleteMovie() {
   if (!modalState?.existing) return;
-  // Filter by both id AND user_id — Supabase RLS should enforce this too,
-  // but defence-in-depth means we always scope to the logged-in user.
-  const { error } = await sb.from('movies').delete()
-    .eq('id', modalState.existing.id)
-    .eq('user_id', session.user.id);
-  if (error) { toast('Delete failed — please try again', 'err'); return; }
-  toast('Removed from vault', '');
-  closeModal();
-  await loadMovies();
+  try {
+    const { error } = await sb.from('movies').delete()
+      .eq('id', modalState.existing.id)
+      .eq('user_id', session.user.id);
+    if (error) { toast('Delete failed — please try again', 'err'); return; }
+    toast('Removed from vault', '');
+    closeModal();
+    await loadMovies();
+  } catch (err) {
+    toast('Delete failed — network error', 'err');
+  }
 }
 
 // ── GRID ──────────────────────────────────────
@@ -1853,7 +1868,7 @@ async function openExisting(imdbID) {
   if (!existing) return;
 
   try {
-    const r = await fetch(`https://www.omdbapi.com/?i=${imdbID}&plot=full&apikey=${omdbKey}`);
+    const r = await fetch(`https://www.omdbapi.com/?i=${encodeURIComponent(imdbID)}&plot=full&apikey=${omdbKey}`);
     const d = await r.json();
     if (d.Response === 'True') { openModal(d, existing); return; }
   } catch(e) {}
